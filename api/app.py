@@ -12,22 +12,17 @@ def submit():
 @app.route("/")
 def hello_world():
     return render_template("index.html")
-    
+
+
 def process_query(name):
     if name == "dinosaurs":
-      return "Dinosaurs ruled the Earth 200 million years ago"
-    
+        return "Dinosaurs ruled the Earth 200 million years ago"
+
     if name == "asteroids":
-      return "Unknown"
-       
+        return "Unknown"
+
 
 @app.route("/query", methods=["GET"])
 def handle_query():
-    q_query = request.args.get('q')   
+    q_query = request.args.get('q')
     return process_query(q_query)
-       
-    
-    
-    
-    
-    
