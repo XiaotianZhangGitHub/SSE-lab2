@@ -27,7 +27,7 @@ unit-testing:
    - name: Install dependencies
      run: pip install -r requirements.txt
    - name: Run unit tests
-     run: pytest api/*.py
+     run: pytest api/
  deploy-to-vercel:
   needs: python-formatting
   runs-on: ubuntu-latest
