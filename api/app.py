@@ -21,7 +21,7 @@ def process_query(name):
       return "Unknown"
        
 
-@app.route("/query")
+@app.route("/query", methods=["GET"])
 def handle_query():
     q_query = request.args.get('q')   
     return process_query(q_query)
