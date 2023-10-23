@@ -15,7 +15,7 @@ jobs:
       - name: Run flake8
         run: flake8 api/
   unit_testing:
-    needs: python_formatting
+    needs: python-formatting
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
