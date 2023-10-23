@@ -14,8 +14,6 @@ jobs:
      run: pip install flake8
    - name: Run flake8
      run: flake8 api/
-
-
 unit-testing:
   need: python-formating
   runs-on: ubuntu-latest
@@ -28,9 +26,8 @@ unit-testing:
       python-version: 3.9
    - name: Install dependencies
      run: pip install -r requirement.txt
-   - name: Run unit test
-     run: pytest api/* .py
-
+   - name: Run unit tests
+     run: pytest api/*.py
  deploy-to-vercel:
   needs: python-formatting
   runs-on: ubuntu-latest
