@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, re
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
@@ -24,14 +24,19 @@ def process_query(query):
     if query == "What is your name?":
         return "team"
 
-    pattern = r'What is (\d+) plus (\d+)?'
-    match = re.match(pattern, query)
-    if match:
-        first_number = int(match.group(1))
-        second_number = int(match.group(2))
-        return first_number + second_number
-    else:
-        raise ValueError("Query format not recognized")
+    if "plus" in query:
+        query_words = query.split(" ")
+        numbers = []
+        for word in query_words:
+            if word[0].isdigit():
+                if word[-1] == '?':
+                    word = word[:-1]
+                numbers.append(int(word))
+        if numbers:
+            return sum(numbers)
+        else:
+            return "No"
+    return "Unknown"
 
 
 @app.route("/query", methods=["GET"])

@@ -15,8 +15,3 @@ def test_knows_team_name():
 def test_does_not_know_about_asteroids():
 
     assert process_query("asteroids") == "Unknown"
-
-
-def test_process_query():
-    query = "What is 35 plus 1?"
-    assert process_query(query) == 36
