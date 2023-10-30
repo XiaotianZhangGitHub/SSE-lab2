@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, re
 app = Flask(__name__)
 
 
@@ -23,7 +23,7 @@ def process_query(query):
 
     if query == "What is your name?":
         return "team"
-    
+
     pattern = r'What is (\d+) plus (\d+)?'
     match = re.match(pattern, query)
     if match:
