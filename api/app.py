@@ -48,7 +48,7 @@ def process_query(query):
     #             numbers.append(int(word))
     #          elif word in ["multiplied", "times"]:
     #             operation = "multiply"
-        
+
     #     if operation == "multiply":
     #         if numbers:
     #             result = 1  # Initialize result with 1 for multiplication
@@ -62,7 +62,6 @@ def process_query(query):
     # else:
     #     return "Unknown"
 
-       
 
 @app.route("/query", methods=["GET"])
 def handle_query():
