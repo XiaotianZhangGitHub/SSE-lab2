@@ -21,7 +21,7 @@ def process_query(name):
     if name == "asteroids":
         return "Unknown"
 
-    if name == "name":
+    if name == "What is your name?":
         return "team"
 
 
