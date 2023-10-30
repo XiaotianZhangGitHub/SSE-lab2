@@ -33,11 +33,36 @@ def process_query(query):
                     word = word[:-1]
                 numbers.append(int(word))
         if numbers:
-            return sum(numbers)
+            return str(sum(numbers))
         else:
             return "No"
     return "Unknown"
 
+    # if "multiplied" in query:
+    #     query_words = query.split(" ")
+    #     numbers = []
+    #     for word in query_words:
+    #         if word[0].isdigit():
+    #             if word[-1] == '?':
+    #                 word = word[:-1]
+    #             numbers.append(int(word))
+    #          elif word in ["multiplied", "times"]:
+    #             operation = "multiply"
+        
+    #     if operation == "multiply":
+    #         if numbers:
+    #             result = 1  # Initialize result with 1 for multiplication
+    #             for num in numbers:
+    #                 result *= num
+    #             return result
+    #         else:
+    #             return "No numbers found for multiplication"
+    #     else:
+    #         return "Unknown operation"
+    # else:
+    #     return "Unknown"
+
+       
 
 @app.route("/query", methods=["GET"])
 def handle_query():
