@@ -21,6 +21,9 @@ def process_query(name):
     if name == "asteroids":
         return "Unknown"
 
+    if name == "name":
+        return "team"
+
 
 @app.route("/query", methods=["GET"])
 def handle_query():
