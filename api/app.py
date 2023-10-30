@@ -14,15 +14,24 @@ def hello_world():
     return render_template("index.html")
 
 
-def process_query(name):
-    if name == "dinosaurs":
+def process_query(query):
+    if query == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
 
-    if name == "asteroids":
+    if query == "asteroids":
         return "Unknown"
 
-    if name == "What is your name?":
+    if query == "What is your name?":
         return "team"
+    
+    pattern = r'What is (\d+) plus (\d+)?'
+    match = re.match(pattern, query)
+    if match:
+        first_number = int(match.group(1))
+        second_number = int(match.group(2))
+        return first_number + second_number
+    else:
+        raise ValueError("Query format not recognized")
 
 
 @app.route("/query", methods=["GET"])
