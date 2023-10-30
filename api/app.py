@@ -36,7 +36,29 @@ def process_query(query):
             return str(sum(numbers))
         else:
             return "No"
-    return "Unknown"
+
+    if "minus" in query:
+        query_words = query.split(" ")
+        numbers = []
+        operation = None
+        for word in query_words:
+            if word[0].isdigit():
+                if word[-1] == '?':
+                    word = word[:-1]
+                numbers.append(int(word))
+            elif word == "minus":
+                operation = "subtract"
+
+        if operation == "subtract":
+            if len(numbers) == 2:
+                result = numbers[0] - numbers[1]
+                return str(result)
+            else:
+                return "Invalid subtraction format: Need two numbers"
+        else:
+            return "Unknown operation"
+    # else
+        # return "Unknown"
 
     # if "multiplied" in query:
     #     query_words = query.split(" ")

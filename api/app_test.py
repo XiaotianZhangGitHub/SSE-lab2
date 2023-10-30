@@ -17,6 +17,6 @@ def test_does_not_know_about_asteroids():
     assert process_query("asteroids") == "Unknown"
 
 
-def test_plus():
+def test_minus():
 
-    assert process_query("What is 19 plus 25?") == "44"
+    assert process_query("What is 30 minus 25?") == "5"
